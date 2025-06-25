@@ -1,20 +1,31 @@
-<%= form_with model: [ article, article.comments.build ] do |form| %>
+<div class="w-full max-w-2xl mx-auto px-4">
 
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
-  </p>
+<%= form_with model: [ article, article.comments.build ], local: true do |form| %>
 
 
+
+
+  <div class="mb-4">
+    <%= form.label :status, class: "block text-sm font-medium text-gray-700 mb-1" %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, {selected: 'public'}, class: "w-full border border-gray-300 rounded px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 " %>
+  </div>
+
+
+  <div class="mb-4">
+    <%= form.label :commenter, class: "block text-sm font-medium text-gray-700 mb-1" %><br>
+    <%= form.text_field :commenter, class: "w-full border border-gray-300 rounded px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :body, class: "block text-sm font-medium text-gray-700 mb-1" %><br>
+    <%= form.text_area :body, rows: 4, class:"w-full border border-gray-300 rounded px-3 py-2 shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-5" %>
+  </div>
+
   <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
+    <%= form.submit "Post Comment", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"  %>
   </p>
 <% end %>
+
+</div>
+
+

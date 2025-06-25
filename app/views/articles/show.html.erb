@@ -1,26 +1,56 @@
+<div class ="max-w-4xl mx-auto px-4 py-8">
 
 
 
+  <!-- Article Header -->
 
-<h1><%= @article.title %></h1>
+  <div class="bg-gray-100 rounded px-3 py-2">
 
-<p><%= @article.body %></p>
+<h1 class="text-3xl font-bold text-gray-800 mb-2"><%= @article.title %></h1>
+<p class="text-gray-600 mb-6 leading-relaxed"><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
+
+
+  <!-- Edit and Delete Buttons -->
+<div class="flex mb-10 gap-2">
+  <%= link_to "✏️ Edit Article ", edit_article_path(@article) %>  
+   <span>|</span>
+  <%= link_to "🗑️ Destroy Article", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  } %>
+</div>
 
-<h2>Comments</h2>
+</div>
+
+
+
+
+
+<!-- Comments Section -->
+
+<h2 class="text-2xl font-semibold text-gray-800 mb-4">Comments</h2>
+
 <%= render @article.comments %>
+</div>
 
 
 
-<h2>Add a comment:</h2>
+
+
+  <!-- Add a Comment -->
+  <div class ="max-w-4xl mx-auto px-4 py-8">
+
+<h2 class="text-2xl font-semibold text-gray-800 mb-4" >Add a comment:</h2>
+
+  <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+
 <%= render "comments/form", article: @article %>
+</div>
 
 
-<%= link_to "Home", articles_path%>
+<%= link_to "← Homepage", articles_path, class: "inline-block text-blue-600 hover:underline"%>
+
+
+
+</div>

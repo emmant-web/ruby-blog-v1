@@ -1,19 +1,35 @@
 <% unless comment.archived? %>
-<p>
-  <strong>Commenter:</strong>
+
+
+
+<div class=" p-4 rounded shadow-md">
+
+<p class="text-lg font-bold text-gray-600 mb-1">
+
+<!--  <strong>Commenter:</strong> -->
   <%= comment.commenter %>
 </p>
 
-<p>
-  <strong>Comment:</strong>
+<p class="text-gray-800 mb-5">
+  
+  <!-- <strong>Comment:</strong>  -->
   <%= comment.body %>
 </p>
 
 
-  <p>
-    <%= link_to "Destroy Comment", [comment.article, comment], data: {
+
+ 
+   <div class="flex-gap-3">
+    <%= link_to "✏️ Edit Comment ", edit_article_comment_path(comment.article, comment) %>
+    |
+    <%= link_to "🗑️ Destroy Comment", [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>
-  </p>
+    </div>
+ 
+
+</div>
+
+
 <% end %>
