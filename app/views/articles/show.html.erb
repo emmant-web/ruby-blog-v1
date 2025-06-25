@@ -4,7 +4,7 @@
 
   <!-- Article Header -->
 
-  <div class="bg-gray-100 rounded px-3 py-2">
+  <div class="bg-gray-100 rounded px-3 py-2 mb-4">
 
 <h1 class="text-3xl font-bold text-gray-800 mb-2"><%= @article.title %></h1>
 <p class="text-gray-600 mb-6 leading-relaxed"><%= @article.body %></p>
@@ -12,7 +12,7 @@
 
 
   <!-- Edit and Delete Buttons -->
-<div class="flex mb-10 gap-2">
+<div class="flex gap-2">
   <%= link_to "✏️ Edit Article ", edit_article_path(@article) %>  
    <span>|</span>
   <%= link_to "🗑️ Destroy Article", article_path(@article), data: {
@@ -29,7 +29,7 @@
 
 <!-- Comments Section -->
 
-<h2 class="text-2xl font-semibold text-gray-800 mb-4">Comments</h2>
+<h2 class="text-2xl font-semibold text-gray-800">Comments</h2>
 
 <%= render @article.comments %>
 </div>
